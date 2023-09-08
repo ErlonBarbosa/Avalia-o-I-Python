@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Veículos</title>
+    
+    <link rel="stylesheet" href="/static/estilo.css">
+    
+</head>
+<body>
+  <header>
+    <div class="boxlogo">
+      
+      <div class="logo">
+        <img src="" alt="">
+      </div>
+
+      <div class="titu">
+        <h1><em>JM VEÍCULOS</em></h1>
+      </div>
+
+
+    </div>
+    
+
+    <nav>
+      <ul>
+        <li> <a href="/"> Home </a></li>
+        <li> <a href="/adicionar"> Cadastrar Veículo </a></li>
+        <li> <a href="/alterar"> Alterar veiculo</a></li>
+        
+
+      </ul>
+
+    </nav>
+  </header>
+
+  
+
+    <h1 class="cabecalho" >Veículos</h1>
+    <section>
+      <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>Cor</th>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th>Ano de Fabricação</th>
+            <th>Estado</th>
+            <th>Km Rodados</th>
+            <th>Passagem em Leilão</th>
+            <th>Formas de Pagamento</th>
+            <!-- Adicione os outros cabeçalhos aqui -->
+            <th>Ações</th>
+        </tr>
+        
+        {% for veiculo in veiculos %}
+            <tr>
+                <td>{{ veiculo[0] }}</td>
+                <td>{{ veiculo[1] }}</td>
+                <td>{{ veiculo[2] }}</td>
+                <td>{{ veiculo[3] }}</td>
+                <td>{{ veiculo[4] }}</td>
+                <td>{{ veiculo[5] }}</td>
+                <td>{{ veiculo[6] }}</td>
+                <td>{{ veiculo[7] }}</td>
+                <td>{{ veiculo[8] }}</td>
+                <td>{{ veiculo[9] }}</td>
+                <!-- Adicione as outras colunas aqui -->
+                <td class="td/form">
+                    <form class="table-btn" action="/excluir/{{ veiculo[0]}}" method="POST">
+                        <button class="btn-excluir" type="submit">Excluir</button>
+                        <a href="/alterar/{{ veiculo[0] }}">Alterar</a>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+  </section>
+    
+    
+</body>
+</html>
